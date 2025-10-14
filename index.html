@@ -1,0 +1,431 @@
+<!DOCTYPE html> 
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zaki Musthofa — Portofolio Web</title>
+  <meta name="description" content="Portofolio Zaki Musthofa — Mahasiswa Teknik Informatika. Proyek Flutter, Laravel, UI/UX, dan NLP. Kontak untuk kolaborasi atau magang System Analyst." />
+  <meta name="keywords" content="Zaki Musthofa, portofolio, Teknik Informatika, Flutter, Laravel, UI UX, NLP, System Analyst" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b0b0f" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Zaki Musthofa — Portofolio Web" />
+  <meta property="og:description" content="Proyek Flutter, Laravel, UI/UX, dan NLP dalam satu halaman. Mari berkolaborasi!" />
+  <meta property="og:image" content="assets/preview.jpg" />
+  <meta property="og:locale" content="id_ID" />
+  <link rel="canonical" href="/" />
+  
+  <!-- JSON-LD Schema.org: Person + WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Zaki Musthofa",
+    "jobTitle": "Mahasiswa Teknik Informatika / System Analyst (Intern)",
+    "url": "https://example.com/",
+    "image": "https://example.com/assets/profile.png",
+    "sameAs": [
+      "https://github.com/zaki2424fa",
+      "https://www.linkedin.com/"
+    ]
+  }
+  </script>
+  
+  <style>
+    /* ====== Reset ringan + variabel ====== */
+    :root{
+      --bg: #0b0b0f;
+      --panel: #12121a;
+      --panel-2:#161622;
+      --text: #e8e8f0;
+      --muted:#a8a8b8;
+      --accent:#22c55e; /* emerald */
+      --accent-2:#60a5fa; /* sky */
+      --ring:#3b82f6;
+      --card:#0f0f17;
+      --link:#9bc9ff;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --maxw: 1140px;
+    }
+    *{box-sizing:border-box}
+    html:focus-within{scroll-behavior:smooth}
+    html,body{height:100%}
+    body{
+      margin:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Noto Sans",sans-serif;
+      color:var(--text);
+      background:
+       radial-gradient(1200px 600px at 70% -10%, #1b1b27 5%, transparent 60%),
+       radial-gradient(900px 500px at -10% 30%, #102027 10%, transparent 60%),
+       var(--bg);
+      letter-spacing:.2px;
+    }
+    img{max-width:100%; display:block}
+    a{color:var(--link); text-decoration: none}
+    a:hover{text-decoration:underline}
+    /* Aksesibilitas */
+    :focus{outline: 3px solid var(--ring); outline-offset:3px}
+    .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip:focus{left:16px; top:16px; width:auto;height:auto; padding:.6rem .9rem; background:var(--panel); border-radius:10px}
+
+    /* ====== Layout ====== */
+    .container{max-width:var(--maxw); margin-inline:auto; padding: clamp(16px, 2vw, 28px)}
+    .grid{display:grid; gap:clamp(16px, 2vw, 28px)}
+
+    header.site{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(1.2) blur(12px);
+      background:linear-gradient(180deg, rgba(11,11,15,.85), rgba(11,11,15,.55));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand .logo{width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; color:#0b0b0f; font-weight:700}
+    .brand .name{font-weight:700; letter-spacing:.4px}
+
+    /* Nav (checkbox hack, tanpa JS) */
+    #menu-toggle{display:none}
+    .links{display:flex; gap:18px; align-items:center}
+    .links a{padding:.55rem .8rem; border-radius:999px; color:var(--text)}
+    .links a:hover{background:rgba(255,255,255,.06)}
+    .btn{display:inline-flex; gap:.5rem; align-items:center; border-radius:999px; padding:.7rem 1rem; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#081018; font-weight:700; box-shadow:var(--shadow)}
+    .btn:hover{text-decoration:none; filter:saturate(1.1)}
+
+    .burger{display:none; cursor:pointer; padding:.5rem}
+    .burger span{width:22px; height:2px; background:#d7eaff; display:block; margin:5px 0; border-radius:2px}
+
+    /* Hero */
+    .hero{padding: min(12vh,120px) 0}
+    .hero .wrap{display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; align-items:center}
+    .kicker{display:inline-flex; gap:.5rem; align-items:center; color:#b6ffcf; background:rgba(34,197,94,.1); border:1px solid rgba(34,197,94,.3); padding:.3rem .6rem; border-radius:999px; font-size:.84rem}
+    h1{font-size:clamp(1.9rem, 4.2vw + .5rem, 3.4rem); line-height:1.15; margin:.6rem 0 1rem}
+    .lead{color:var(--muted); font-size:clamp(1rem, 1.2vw + .3rem, 1.2rem)}
+    .cta{display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.2rem}
+
+    .photo{
+      width:min(420px, 90%); margin-inline:auto; aspect-ratio:1/1; border-radius:24px;
+      background: radial-gradient(100% 100% at 30% 30%, #1f2937, #0e1016);
+      border:1px solid rgba(255,255,255,.06); box-shadow: var(--shadow);
+      display:grid; place-items:center; overflow:hidden
+    }
+    .photo svg{opacity:.9}
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:50% 32%; /* fokus ke wajah di tengah */
+      display:block;
+    }
+
+    /* Section */
+    section{padding: 64px 0; position:relative}
+    section .head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:22px}
+    .title{font-size: clamp(1.4rem, 1.8vw + .5rem, 2rem)}
+    .sub{color:var(--muted)}
+
+    /* Kartu & list */
+    .cards{display:grid; grid-template-columns: repeat(12, 1fr); gap:18px}
+    .card{grid-column: span 4; background:linear-gradient(180deg,var(--panel),var(--panel-2)); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .card:hover{transform:translateY(-2px)}
+
+    .badge{display:inline-flex; align-items:center; gap:.4rem; padding:.28rem .55rem; border-radius:999px; background:rgba(255,255,255,.06); color:#e7f2ff; font-size:.82rem}
+    .tags{display:flex; flex-wrap:wrap; gap:.45rem; margin-top:.6rem}
+
+    /* Skills */
+    .skills{display:flex; flex-wrap:wrap; gap:.5rem}
+    .chip{border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04); padding:.45rem .7rem; border-radius:12px; color:#dfe9ff; font-size:.95rem}
+
+    /* Timeline */
+    .timeline{position:relative; padding-left:24px}
+    .timeline:before{content:""; position:absolute; left:6px; top:4px; bottom:4px; width:2px; background:linear-gradient(180deg, rgba(96,165,250,.8), rgba(34,197,94,.8))}
+    .step{position:relative; margin-bottom:16px; padding-left:12px}
+    .step:before{content:""; position:absolute; left:-2px; top:6px; width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 3px rgba(34,197,94,.25)}
+
+    /* Footer */
+    footer{padding:28px 0; color:#cbd5e1}
+    .muted{color:var(--muted)}
+
+    /* Responsif */
+    @media (max-width: 940px){
+      .hero .wrap{grid-template-columns: 1fr}
+      .cards .card{grid-column: span 6}
+      .links{position:fixed; inset:64px 16px auto 16px; flex-direction:column; background:var(--panel); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:12px; display:none}
+      .burger{display:block}
+      #menu-toggle:checked ~ .links{display:flex}
+    }
+    @media (max-width: 620px){
+      .cards .card{grid-column: span 12}
+    }
+
+    /* Motion preferensi */
+    @media (prefers-reduced-motion: reduce){
+      html:focus-within{scroll-behavior:auto}
+      *{transition:none !important}
+    }
+
+    /* Print (CV cepat) */
+    @media print{
+      header.site, .cta a[href^="mailto:"], .cta a[href*="wa.me"], .burger{display:none !important}
+      body{background:#fff; color:#000}
+      .card, .photo{box-shadow:none}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#konten">Lewati ke konten utama</a>
+
+  <!-- ====== Header ====== -->
+  <header class="site">
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">ZM</div>
+        <div class="name" aria-label="Nama">Zaki Musthofa</div>
+      </div>
+
+      <label class="burger" for="menu-toggle" aria-label="Buka menu"><span></span><span></span><span></span></label>
+      <input type="checkbox" id="menu-toggle" aria-hidden="true" />
+
+      <nav class="links" aria-label="Navigasi utama">
+        <a href="#tentang">Tentang</a>
+        <a href="#keahlian">Keahlian</a>
+        <a href="#proyek">Proyek</a>
+        <a href="#pengalaman">Pengalaman</a>
+        <a href="#kontak">Kontak</a>
+        <a class="btn" href="assets/CV_ZakiMusthofa.pdf" download>Unduh CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="konten">
+    <!-- ====== Hero ====== -->
+    <section class="hero">
+      <div class="container wrap">
+        <div>
+          <div class="kicker">👋 Halo! Saya</div>
+          <h1>Zaki Musthofa — Mahasiswa TI yang senang membangun <em>produk</em> yang rapi, cepat, dan ramah pengguna.</h1>
+          <p class="lead">Fokus pada <strong>Flutter</strong> (mobile) dan <strong>Laravel</strong> (web). Ketertarikan riset pada <strong>NLP</strong> dan <strong>LLM</strong>. Terbuka untuk magang <u>System Analyst</u> (mobile & web) dan kolaborasi proyek.</p>
+          <div class="cta">
+            <a class="btn" href="#proyek">Lihat Proyek</a>
+            <a class="btn" href="mailto:zaki2424fa@gmail.com">Hubungi via Email</a>
+            <a class="btn" href="https://wa.me/6287810222899">Chat WhatsApp</a>
+          </div>
+        </div>
+        <div>
+          <figure class="photo" aria-label="Foto profil">
+            <img src="assets/profile.png" alt="Foto Zaki Musthofa" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Tentang ====== -->
+    <section id="tentang">
+      <div class="container grid" style="grid-template-columns: .9fr 1.1fr; align-items:start">
+        <div>
+          <h2 class="title">Tentang Saya</h2>
+          <p class="sub">Mahasiswa <strong>Teknik Informatika</strong> dengan pengalaman mengerjakan proyek studi dan freelance kecil. Saya mengutamakan <em>clean code</em>, dokumentasi, dan desain yang dapat diakses (aksesibilitas). Di waktu luang, saya mengeksplor <abbr title="Natural Language Processing">NLP</abbr> untuk Bahasa Indonesia.</p>
+          <div class="tags">
+            <span class="badge">Bahasa: ID / EN</span>
+            <span class="badge">Domisili: Jawa Timur</span>
+            <span class="badge">Minat: Research & Product</span>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <h3 style="margin-top:0">Sorotan</h3>
+            <ul>
+              <li>Membangun <strong>aplikasi Flutter</strong> (daftar makanan, keranjang, checkout) dengan <em>Provider</em>.</li>
+              <li>Proyek <strong>Laravel</strong> untuk portofolio & pengelolaan konten sederhana.</li>
+              <li>Studi kasus <strong>UI/UX</strong> perbandingan aplikasi e-commerce & m-banking.</li>
+              <li>Eksperimen <strong>LLM Fine-Tuning</strong> untuk klasifikasi emosi berbahasa Indonesia.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Keahlian ====== -->
+    <section id="keahlian">
+      <div class="container">
+        <div class="head">
+          <h2 class="title">Keahlian Utama</h2>
+          <p class="sub">Teknologi dan kemampuan yang paling sering saya gunakan</p>
+        </div>
+        <div class="skills">
+          <span class="chip">Flutter • Dart</span>
+          <span class="chip">Laravel • PHP</span>
+          <span class="chip">HTML • CSS • JS</span>
+          <span class="chip">Firebase • Firestore</span>
+          <span class="chip">Git • GitHub</span>
+          <span class="chip">UI/UX • Figma</span>
+          <span class="chip">NLP • Text Classification</span>
+          <span class="chip">System Analysis • SDLC</span>
+          <span class="chip">Problem Solving • Teamwork</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Proyek ====== -->
+    <section id="proyek">
+      <div class="container">
+        <div class="head">
+          <h2 class="title">Proyek Terpilih</h2>
+          <p class="sub">Beberapa karya yang dapat diakses publik</p>
+        </div>
+        <div class="cards">
+          <!-- Card 1 -->
+          <article class="card" aria-label="Pemutar Lirik Hindia">
+            <header class="grid" style="grid-template-columns: 84px 1fr; gap:12px; align-items:center">
+              <div style="width:84px; aspect-ratio:1/1; border-radius:12px; background:#0b1220; display:grid; place-items:center">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M8 5v11a3 3 0 1 0 2 2.83V9h6v7a3 3 0 1 0 2 2.83V5H8z" stroke="#9bc9ff" stroke-width="1.4"/>
+                </svg>
+              </div>
+              <div>
+                <h3 style="margin:0 0 6px">Pemutar Lirik — Hindia “Everything U Are”</h3>
+                <p class="muted" style="margin:0">UI mirip Spotify: cover, lirik sinkron, kontrol audio.</p>
+              </div>
+            </header>
+            <div class="tags">
+              <span class="badge">HTML</span>
+              <span class="badge">CSS</span>
+              <span class="badge">JavaScript</span>
+            </div>
+            <p style="margin:.8rem 0 0">Eksperimen sinkronisasi lirik dan desain pemutar media yang responsif.</p>
+            <p style="margin:.4rem 0 0"><a href="https://zaki2424fa.github.io/everything_you_are/" target="_blank" rel="noopener">Demo Live</a> · <a href="https://github.com/zaki2424fa/everything_you_are" target="_blank" rel="noopener">Kode Sumber</a></p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card" aria-label="Aplikasi Menu Makanan Flutter">
+            <header class="grid" style="grid-template-columns: 84px 1fr; gap:12px; align-items:center">
+              <div style="width:84px; aspect-ratio:1/1; border-radius:12px; background:#0b1220; display:grid; place-items:center">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M4 7h16M4 12h16M4 17h10" stroke="#b6ffcf" stroke-width="1.4"/>
+                </svg>
+              </div>
+              <div>
+                <h3 style="margin:0 0 6px">Aplikasi Menu Makanan (Flutter)</h3>
+                <p class="muted" style="margin:0">Daftar menu, keranjang, dan checkout dengan Provider.</p>
+              </div>
+            </header>
+            <div class="tags">
+              <span class="badge">Flutter</span>
+              <span class="badge">Provider</span>
+              <span class="badge">Firebase</span>
+            </div>
+            <p style="margin:.8rem 0 0">Menitikberatkan pada state management dan arsitektur rapi.</p>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card" aria-label="Portal Portofolio Laravel">
+            <header class="grid" style="grid-template-columns: 84px 1fr; gap:12px; align-items:center">
+              <div style="width:84px; aspect-ratio:1/1; border-radius:12px; background:#0b1220; display:grid; place-items:center">
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M3 7h7v10H3zM14 7h7v5h-7zM14 14h7v3h-7z" stroke="#ffd199" stroke-width="1.4"/>
+                </svg>
+              </div>
+              <div>
+                <h3 style="margin:0 0 6px">Portal Portofolio (Laravel)</h3>
+                <p class="muted" style="margin:0">Situs portofolio sederhana, CRUD konten, dan autentikasi dasar.</p>
+              </div>
+            </header>
+            <div class="tags">
+              <span class="badge">Laravel</span>
+              <span class="badge">Blade</span>
+              <span class="badge">MySQL</span>
+            </div>
+            <p style="margin:.8rem 0 0">Menekankan struktur folder rapi, validasi, dan keamanan dasar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Pengalaman & Pendidikan ====== -->
+    <section id="pengalaman">
+      <div class="container">
+        <div class="head">
+          <h2 class="title">Pengalaman & Pendidikan</h2>
+          <p class="sub">Ringkasan perjalanan belajar dan kontribusi</p>
+        </div>
+        <div class="grid" style="grid-template-columns: 1.1fr .9fr">
+          <div class="timeline">
+            <div class="step">
+              <h3 style="margin:.2rem 0">Mobile App Developer — Program KKN (Ketua Sub Kelompok 7 R15)</h3>
+              <p class="muted" style="margin:.2rem 0">07/2025 — Bangun aplikasi <strong>PamdesR15Pacet</strong> berbasis Flutter untuk pencatatan meter air & data pelanggan BUMDes; multi-role login dengan Firebase; deployment & pelatihan ke perangkat desa.</p>
+            </div>
+            <div class="step">
+              <h3 style="margin:.2rem 0">Wakil Ketua KKN R15 — Universitas 17 Agustus 1945 Surabaya</h3>
+              <p class="muted" style="margin:.2rem 0">07/2025 — Koordinasi 35 anggota lintas jurusan, komunikasi dengan perangkat desa & kampus, monitoring program dan penyusunan laporan.</p>
+            </div>
+            <div class="step">
+              <h3 style="margin:.2rem 0">Ketua/Tribe Data Analyst for Business — PT Berpikir Revolusioner Indonesia (MSIB Batch 7)</h3>
+              <p class="muted" style="margin:.2rem 0">09/2024–12/2024 — Koordinasi mahasiswa–perusahaan, memastikan kelancaran acara & penyelesaian tenggat, membantu penanganan isu tugas.</p>
+            </div>
+            <div class="step">
+              <h3 style="margin:.2rem 0">Crew Crowd Control — Pertamax Turbo Drag Fest 2024</h3>
+              <p class="muted" style="margin:.2rem 0">07/2024 — Menjaga ketertiban dan alur acara di Tasikmalaya & Cicangkal.</p>
+            </div>
+            <div class="step">
+              <h3 style="margin:.2rem 0">Ketua Pelaksana — Wedding Organization Surabaya</h3>
+              <p class="muted" style="margin:.2rem 0">02/2024 — Orkestrasi operasional acara, koordinasi rundown & VIP, memastikan ketepatan waktu.</p>
+            </div>
+          </div>
+          <aside>
+            <div class="card">
+              <h3 style="margin-top:0">Pendidikan</h3>
+              <p><strong>Teknik Informatika</strong> — Universitas 17 Agustus 1945 Surabaya <span class="muted">(08/2022–Sekarang)</span></p>
+              <ul>
+                <li>IPK: 3.70 / 4.00</li>
+                <li>Fokus: Mobile Dev, Web Dev, UI/UX, NLP</li>
+                <li>Judul Skripsi: <em>Peningkatan Akurasi Klasifikasi Tingkat Emosi Anak Korban Trauma Menggunakan Fine-Tuning Model LLM Berbasis Bahasa Indonesia</em></li>
+                <li>Aktivitas: KKN, Informatics Leader Camp, Data Series Fair 11.0 (BI), MSIB 7 (Tribe Data Analyst), Diklatsar Menwa Mahasurya</li>
+              </ul>
+              <h3 style="margin:1rem 0 .5rem">Organisasi & Peran</h3>
+              <ul>
+                <li>UKM Robotika — Narasumber demo & pengelola stand</li>
+                <li>HMTI — Master of Ceremony Pemilu Raya</li>
+                <li>Dewan Ambalan — Panitia pembentukan ambalan (Pramuka)</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Kontak ====== -->
+    <section id="kontak">
+      <div class="container">
+        <div class="head">
+          <h2 class="title">Mari Terhubung</h2>
+          <p class="sub">Saya terbuka untuk kolaborasi, freelance kecil, dan kesempatan magang</p>
+        </div>
+        <div class="cards">
+          <div class="card" style="grid-column: span 6">
+            <h3 style="margin-top:0">Info Kontak</h3>
+            <ul>
+              <li>Email: <a href="mailto:zaki2424fa@gmail.com">zaki2424fa@gmail.com</a></li>
+              <li>WhatsApp: <a href="https://wa.me/6287810222899" target="_blank" rel="noopener">+62 87810222899</a></li>
+              <li>GitHub: <a href="https://github.com/zaki2424fa" target="_blank" rel="noopener">github.com/zaki2424fa</a></li>
+              <li>LinkedIn: <a href="https://www.linkedin.com/in/zakimusthofa20" target="_blank" rel="noopener">linkedin.com/in/zakimusthofa20</a></li>
+            </ul>
+          </div>
+          <div class="card" style="grid-column: span 6">
+            <h3 style="margin-top:0">CTA Singkat</h3>
+            <p>Butuh bantuan membuat <strong>aplikasi Flutter</strong>, <strong>situs Laravel</strong>, atau <strong>audit UI/UX</strong>? Saya siap bantu 🚀</p>
+            <p><a class="btn" href="mailto:zaki2424fa@gmail.com?subject=Kolaborasi%20Proyek">Ajak Kolaborasi</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap">
+      <p class="muted">© <span id="y">2025</span> Zaki Musthofa. Dibangun dengan HTML & CSS.</p>
+      <p class="muted">Optimasi SEO dasar • Aksesibilitas • Responsif</p>
+    </div>
+  </footer>
+
+  <!-- No JS needed. Tahun dinamis optional (non-JS untuk kepatuhan permintaan). -->
+</body>
+</html>
