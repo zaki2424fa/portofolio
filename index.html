@@ -1,36 +1,40 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Zaki Musthofa — Portofolio Web</title>
-  <meta name="description" content="Portofolio Zaki Musthofa — Mahasiswa Teknik Informatika. Proyek Flutter, Laravel, UI/UX, dan NLP. Kontak untuk kolaborasi atau magang System Analyst." />
-  <meta name="keywords" content="Zaki Musthofa, portofolio, Teknik Informatika, Flutter, Laravel, UI UX, NLP, System Analyst" />
+
+  <!-- SEO dasar -->
+  <meta name="description" content="Portofolio Zaki Musthofa — Mahasiswa Teknik Informatika. Proyek Flutter, Laravel, UI/UX, serta riset NLP & LLM. Terbuka untuk kolaborasi dan magang System Analyst." />
+  <meta name="keywords" content="Zaki Musthofa, portofolio, Teknik Informatika, Flutter, Laravel, UI UX, NLP, LLM, System Analyst" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b0b0f" />
+  <link rel="canonical" href="https://zaki2424fa.github.io/portofolio/" />
+
+  <!-- Social preview -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Zaki Musthofa — Portofolio Web" />
-  <meta property="og:description" content="Proyek Flutter, Laravel, UI/UX, dan NLP dalam satu halaman. Mari berkolaborasi!" />
-  <meta property="og:image" content="assets/preview.jpg" />
+  <meta property="og:description" content="Proyek Flutter, Laravel, UI/UX, dan riset NLP & LLM dalam satu halaman. Mari berkolaborasi!" />
+  <meta property="og:image" content="https://zaki2424fa.github.io/portofolio/profile.png" />
   <meta property="og:locale" content="id_ID" />
-  <link rel="canonical" href="/" />
-  
-  <!-- JSON-LD Schema.org: Person + WebSite -->
+
+  <!-- JSON-LD Schema.org: Person -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Zaki Musthofa",
     "jobTitle": "Mahasiswa Teknik Informatika / System Analyst (Intern)",
-    "url": "https://example.com/",
-    "image": "https://example.com/assets/profile.png",
+    "url": "https://zaki2424fa.github.io/portofolio/",
+    "image": "https://zaki2424fa.github.io/portofolio/profile.png",
     "sameAs": [
       "https://github.com/zaki2424fa",
-      "https://www.linkedin.com/"
+      "https://www.linkedin.com/in/zakimusthofa20"
     ]
   }
   </script>
-  
+
   <style>
     /* ====== Reset ringan + variabel ====== */
     :root{
@@ -61,10 +65,9 @@
       letter-spacing:.2px;
     }
     img{max-width:100%; display:block}
-    a{color:var(--link); text-decoration: none}
+    a{color:var(--link); text-decoration:none}
     a:hover{text-decoration:underline}
-    /* Aksesibilitas */
-    :focus{outline: 3px solid var(--ring); outline-offset:3px}
+    :focus{outline:3px solid var(--ring); outline-offset:3px}
     .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
     .skip:focus{left:16px; top:16px; width:auto;height:auto; padding:.6rem .9rem; background:var(--panel); border-radius:10px}
 
@@ -108,22 +111,21 @@
       border:1px solid rgba(255,255,255,.06); box-shadow: var(--shadow);
       display:grid; place-items:center; overflow:hidden
     }
-    .photo svg{opacity:.9}
     .photo img{
       width:100%;
       height:100%;
       object-fit:cover;
-      object-position:50% 32%; /* fokus ke wajah di tengah */
+      object-position:50% 32%; /* 50% = center X, 32% = sedikit naik agar fokus ke wajah */
       display:block;
     }
 
     /* Section */
-    section{padding: 64px 0; position:relative}
+    section{padding:64px 0; position:relative}
     section .head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:22px}
-    .title{font-size: clamp(1.4rem, 1.8vw + .5rem, 2rem)}
+    .title{font-size:clamp(1.4rem, 1.8vw + .5rem, 2rem)}
     .sub{color:var(--muted)}
 
-    /* Kartu & list */
+    /* Cards */
     .cards{display:grid; grid-template-columns: repeat(12, 1fr); gap:18px}
     .card{grid-column: span 4; background:linear-gradient(180deg,var(--panel),var(--panel-2)); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
     .card:hover{transform:translateY(-2px)}
@@ -157,13 +159,11 @@
       .cards .card{grid-column: span 12}
     }
 
-    /* Motion preferensi */
     @media (prefers-reduced-motion: reduce){
       html:focus-within{scroll-behavior:auto}
       *{transition:none !important}
     }
 
-    /* Print (CV cepat) */
     @media print{
       header.site, .cta a[href^="mailto:"], .cta a[href*="wa.me"], .burger{display:none !important}
       body{background:#fff; color:#000}
@@ -191,7 +191,7 @@
         <a href="#proyek">Proyek</a>
         <a href="#pengalaman">Pengalaman</a>
         <a href="#kontak">Kontak</a>
-        <a class="btn" href="assets/CV_ZakiMusthofa.pdf" download>Unduh CV</a>
+        <a class="btn" href="CV_ZakiMusthofa.pdf" download>Unduh CV</a>
       </nav>
     </div>
   </header>
@@ -212,8 +212,8 @@
         </div>
         <div>
           <figure class="photo" aria-label="Foto profil">
-            <!-- TANPA FOLDER: taruh profile.jpg di samping index.html -->
-            <img src="profile.jpg" alt="Foto Zaki Musthofa" loading="lazy" />
+            <!-- TANPA FOLDER: taruh profile.png di root (satu folder dengan index.html) -->
+            <img src="profile.png?v=2" alt="Foto Zaki Musthofa" loading="lazy" />
           </figure>
         </div>
       </div>
@@ -221,7 +221,7 @@
 
     <!-- ====== Tentang ====== -->
     <section id="tentang">
-      <div class="container grid" style="grid-template-columns: .9fr 1.1fr; align-items:start">
+      <div class="container grid" style="grid-template-columns:.9fr 1.1fr; align-items:start">
         <div>
           <h2 class="title">Tentang Saya</h2>
           <p class="sub">Mahasiswa <strong>Teknik Informatika</strong> dengan pengalaman mengerjakan proyek studi dan freelance kecil. Saya mengutamakan <em>clean code</em>, dokumentasi, dan desain yang dapat diakses (aksesibilitas). Di waktu luang, saya mengeksplor <abbr title="Natural Language Processing">NLP</abbr> untuk Bahasa Indonesia.</p>
@@ -276,7 +276,7 @@
         <div class="cards">
           <!-- Card 1 -->
           <article class="card" aria-label="Pemutar Lirik Hindia">
-            <header class="grid" style="grid-template-columns: 84px 1fr; gap:12px; align-items:center">
+            <header class="grid" style="grid-template-columns:84px 1fr; gap:12px; align-items:center">
               <div style="width:84px; aspect-ratio:1/1; border-radius:12px; background:#0b1220; display:grid; place-items:center">
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M8 5v11a3 3 0 1 0 2 2.83V9h6v7a3 3 0 1 0 2 2.83V5H8z" stroke="#9bc9ff" stroke-width="1.4"/>
@@ -298,7 +298,7 @@
 
           <!-- Card 2 -->
           <article class="card" aria-label="Aplikasi Menu Makanan Flutter">
-            <header class="grid" style="grid-template-columns: 84px 1fr; gap:12px; align-items:center">
+            <header class="grid" style="grid-template-columns:84px 1fr; gap:12px; align-items:center">
               <div style="width:84px; aspect-ratio:1/1; border-radius:12px; background:#0b1220; display:grid; place-items:center">
                 <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M4 7h16M4 12h16M4 17h10" stroke="#b6ffcf" stroke-width="1.4"/>
@@ -319,7 +319,7 @@
 
           <!-- Card 3 -->
           <article class="card" aria-label="Portal Portofolio Laravel">
-            <header class="grid" style="grid-template-columns: 84px 1fr; gap:12px; align-items:center">
+            <header class="grid" style="grid-template-columns:84px 1fr; gap:12px; align-items:center">
               <div style="width:84px; aspect-ratio:1/1; border-radius:12px; background:#0b1220; display:grid; place-items:center">
                 <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M3 7h7v10H3zM14 7h7v5h-7zM14 14h7v3h-7z" stroke="#ffd199" stroke-width="1.4"/>
@@ -348,7 +348,7 @@
           <h2 class="title">Pengalaman & Pendidikan</h2>
           <p class="sub">Ringkasan perjalanan belajar dan kontribusi</p>
         </div>
-        <div class="grid" style="grid-template-columns: 1.1fr .9fr">
+        <div class="grid" style="grid-template-columns:1.1fr .9fr">
           <div class="timeline">
             <div class="step">
               <h3 style="margin:.2rem 0">Mobile App Developer — Program KKN (Ketua Sub Kelompok 7 R15)</h3>
@@ -426,7 +426,5 @@
       <p class="muted">Optimasi SEO dasar • Aksesibilitas • Responsif</p>
     </div>
   </footer>
-
-  <!-- No JS needed. Tahun dinamis optional (non-JS untuk kepatuhan permintaan). -->
 </body>
 </html>
